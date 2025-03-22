@@ -1,0 +1,31 @@
+How to Create a bootstrap project
+
+** Install Dependencies **
+command: pip install Django
+
+** Setup Virtual Environment **
+command: python -m venv environment_name
+
+** Activate the Virtual Environment **
+command: ./environment_name/Scripts/activate
+
+** Create your own Django Project **
+command: django-admin startproject project_name
+
+** Create a Django app for your project **
+command: python manage.py startapp app_name
+
+** Run migrations to create database tables **
+command: python manage.py makemigrations
+command: python manage.py migrate
+
+
+-- Add the portfolio app to the INSTALLED_APPS list in settings.py. --
+
+** Create a static folder for css, javascript, and images **
+-- Add the following to settings.py --
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

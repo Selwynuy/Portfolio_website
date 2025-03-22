@@ -1,0 +1,15 @@
+<!-- Timeline Section -->
+<section id="timeline">
+    <div class="container" data-aos="fade-up">
+      <h2>Timeline</h2>
+      <div class="timeline">
+        {% for event in timeline_events %}
+        <div class="timeline-event">
+          <h3>{{ event.title }}</h3>
+          <p class="date">{{ event.date }}</p>
+          <p>{{ event.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
