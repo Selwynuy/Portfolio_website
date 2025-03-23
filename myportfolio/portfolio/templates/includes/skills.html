@@ -10,10 +10,7 @@
         <div class="skill-item">
           <i class="fab fa-{{ skill.name|lower }} me-2"></i> {{ skill.name }}
           <div class="progress">
-            <div
-              class="progress-bar"
-              style="width: '{{ skill.proficiency }}%';"
-            >
+            <div class="progress-bar" style="width: {{ skill.proficiency }}%;">
               {{ skill.proficiency }}%
             </div>
           </div>

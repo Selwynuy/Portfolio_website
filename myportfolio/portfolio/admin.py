@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, SkillCategory, Skill, TimelineEvent, Achievement
+from .models import Project, SkillCategory, Skill, Timeline
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -13,10 +13,8 @@ class SkillCategoryAdmin(admin.ModelAdmin):
 class SkillAdmin(admin.ModelAdmin):
     list_display = ['name', 'category', 'proficiency']
 
-@admin.register(TimelineEvent)
-class TimelineEventAdmin(admin.ModelAdmin):
-    list_display = ['title', 'date']
-
-@admin.register(Achievement)
-class AchievementAdmin(admin.ModelAdmin):
-    list_display = ["title", "date"]
+@admin.register(Timeline)
+class TimelineAdmin(admin.ModelAdmin):
+    list_display = ['title', 'date', 'event_type']
+    list_filter = ['event_type']
+    search_fields = ['title', 'description']

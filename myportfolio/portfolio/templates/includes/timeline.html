@@ -1,15 +1,21 @@
 <!-- Timeline Section -->
 <section id="timeline">
-    <div class="container" data-aos="fade-up">
-      <h2>Timeline</h2>
-      <div class="timeline">
-        {% for event in timeline_events %}
-        <div class="timeline-event">
-          <h3>{{ event.title }}</h3>
-          <p class="date">{{ event.date }}</p>
-          <p>{{ event.description }}</p>
-        </div>
-        {% endfor %}
+  <div class="container" data-aos="fade-up">
+    <h2>Timeline</h2>
+    <div class="timeline">
+      {% for event in timeline_events %}
+      <div class="timeline-item">
+        <h3>{{ event.title }}</h3>
+        <p class="date"><strong>Date:</strong> {{ event.date }}</p>
+        {% if event.location %}
+        <p class="location"><strong>Location:</strong> {{ event.location }}</p>
+        {% endif %}
+        {% if event.achievement_title %}
+        <p class="achievement"><strong>Achievement:</strong> {{ event.achievement_title }}</p>
+        {% endif %}
+        <p>{{ event.description }}</p>
       </div>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>

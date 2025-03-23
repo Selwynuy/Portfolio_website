@@ -30,20 +30,19 @@ class Skill(models.Model):
     
 
 # Timeline model
-class TimelineEvent(models.Model):
+class Timeline(models.Model):
+    EVENT_TYPES = [
+        ('achievement', 'Achievement'),
+        ('milestone', 'Milestone'),
+        ('education', 'Education'),
+        ('experience', 'Experience'),
+    ]
+
     title = models.CharField(max_length=100)
     date = models.DateField()
     description = models.TextField()
+    event_type = models.CharField(max_length=20, choices=EVENT_TYPES, default='achievement')
 
     def __str__(self):
-        return self.title
-    
-# Achievements model
-class Achievement(models.Model):
-    title = models.CharField(max_length=100)
-    date = models.DateField()
-    description = models.TextField()
-
-    def __str__(self):
-        return self.title
+        return f"{self.title} ({self.event_type})"
     

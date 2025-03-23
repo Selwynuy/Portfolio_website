@@ -1,14 +1,13 @@
 # portfolio/views.py
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
-from .models import Project, SkillCategory, TimelineEvent, Achievement
+from .models import Project, SkillCategory, Timeline
 
 
 def home(request):
     # Fetch data for the about section
     skill_categories = SkillCategory.objects.prefetch_related('skills').all()
-    timeline_events = TimelineEvent.objects.all().order_by('-date')
-    achievements = Achievement.objects.all().order_by('-date')
+    timeline_events = Timeline.objects.all().order_by('-date')
 
     # Fetch projects
     projects = Project.objects.all()
@@ -19,12 +18,10 @@ def home(request):
         print(f"Category: {category.name}, Skills: {category.skills.all()}")
 
     print("Timeline Events:", timeline_events)
-    print("Achievements:", achievements)
 
     context = {
         'skill_categories': skill_categories,
         'timeline_events': timeline_events,
-        'achievements': achievements,
         'projects': projects,
     }
     return render(request, 'portfolio/home.html', context)
